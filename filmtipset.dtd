@@ -1,0 +1,34 @@
+<!ENTITY % person "first_name, last_name, nationality+, gender">
+	<!ELEMENT Actors (actor)>
+		<!ELEMENT actor (%person;, movie*)>
+		<!ATTLIST actor actor_id ID #REQUIRED>
+	<!ELEMENT first_name (#PCDATA)>
+	<!ELEMENT last_name (#PCDATA)>
+	<!ELEMENT nationality (#PCDATA)>
+	<!ELEMENT gender (#PCDATA)>
+	<!ELEMENT Directors (director+)>
+		<!ELEMENT director (%person;)>
+		<!ATTLIST director director_id CDATA #REQUIRED>
+	<!ELEMENT Genres (genre*)>
+		<!ELEMENT genre (name*)>
+<!ATTLIST genre genre_id ID #REQUIRED>
+		<!ELEMENT name (#PCDATA)>
+	<!ELEMENT Movies (movie*)>
+		<!ELEMENT movie (title, description, run_time, release_date, director_id, genre_id+, nationality+, imdb_rating, cast*, Studios*)>
+		<!ATTLIST movie movie_id ID #REQUIRED>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT run_time (#PCDATA)>
+	<!ELEMENT release_date (#PCDATA)>
+	<!ELEMENT director_id (#PCDATA)>
+	<!ELEMENT genre_id (#PCDATA)>
+	<!ELEMENT imdb_rating (#PCDATA)>
+	<!ELEMENT cast (actor)>
+	<!ATTLIST cast actor_id IDREF #REQUIRED>
+	<!ELEMENT Studios (name*, location+)>
+	<!ATTLIST studio studio_id IDREF #REQUIRED>
+	<!ELEMENT location (address, nationality)>
+	<!ELEMENT address (#PCDATA)>
+	<!ELEMENT Actor_film (#PCDATA)>
+	<!ATTLIST Actor_film movie_id IDREF #REQUIRED>
+	<!ATTLIST Actor_film actor_id IDREF #REQUIRED>
